@@ -9,111 +9,7 @@
     </a>
   </div>
   </div>
-<!--</div>-->
 
-
-<!--<hr>-->
-
-<!--<div class="row mb-3">-->
-<!--  <div class="col-md-12">-->
-<!--    <table class="table">-->
-<!--      <tr>-->
-<!--        <th>-->
-<!--          Username-->
-<!--        </th>-->
-
-<!--        <th>-->
-<!--          Race-->
-<!--        </th>-->
-
-<!--        <th>-->
-<!--          Time-->
-<!--        </th>-->
-
-<!--        <th>-->
-<!--          Overall place-->
-<!--        </th>-->
-
-<!--        <th>-->
-<!--          Age group place-->
-<!--        </th>-->
-
-<!--        <th>-->
-<!--          Race Notes-->
-<!--        </th>-->
-
-<!--        <th>-->
-<!--          Link-->
-<!--        </th>-->
-
-<!--        <th>-->
-<!--          Year-->
-<!--        </th>-->
-
-<!--        <th>-->
-<!--          Created at-->
-<!--        </th>-->
-
-<!--        <th>-->
-<!--        </th>-->
-<!--      </tr>-->
-
-<!--      <% @results.each do |result| %>-->
-<!--      <tr>-->
-<!--        <td>-->
-<!--          <% if result.user.present? %>-->
-<!--            <a href="/users/<%= result.user.id %>">-->
-<!--              <%= result.user.username %>-->
-<!--            </a>-->
-<!--          <% end %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <% if result.race.present? %>-->
-<!--            <a href="/races/<%= result.race.id %>">-->
-<!--              <%= result.race.name %>-->
-<!--            </a>-->
-<!--          <% end %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <%= result.time %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <%= result.overall_place %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <%= result.age_group_place %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <%= result.body %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <a href="<%= result.link %>">Result</a>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <%= result.year %>-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <%= time_ago_in_words(result.created_at) %> ago-->
-<!--        </td>-->
-
-<!--        <td>-->
-<!--          <a href="/results/<%= result.id %>">-->
-<!--            Show details-->
-<!--          </a>-->
-<!--        </td>-->
-<!--      </tr>-->
-<!--      <% end %>-->
-<!--    </table>-->
-<!--  </div>-->
-<!--</div>-->
 <% @results.each do |result| %>
 <div class="row mb-5">
   <div class="col-md-8 offset-md-2">
@@ -202,10 +98,30 @@
 
                           Add Comment
                         </button>
-                        <div></div>
+                        
                         <% if current_user.id == result.user_id %>
                         <a href="/results/<%=result.id %>/edit" class = "card-link">Edit</a>
                         <a href="/delete_result/<%=result.id %>" class = "card-link">Delete</a>
  
                         <% end %>
-                          <% end %>
+                          
+                                           </span>
+                          </div> <!-- input-group -->
+                  </div>  <!-- form-group -->
+                </form>
+              </div> <!-- media-body -->
+            </li>
+          </ul>
+      </div>
+      </div> <!-- card-body -->
+    </div> <!-- card  -->
+  </div> <!-- col-md-8 offset-md-2 -->
+
+
+   <% end %>  
+   
+   
+  </div>
+
+                         
+                          
