@@ -98,13 +98,14 @@
 
                           Add Comment
                         </button>
+                         <% if current_user.id == result.user_id %>
                         <button>
-                        <% if current_user.id == result.user_id %>
                         <a href="/results/<%=result.id %>/edit" class = "card-link">Edit</a>
                         </button>
                         <button>
                         <a href="/delete_result/<%=result.id %>" class = "card-link">Delete</a>
                          </button>
+                       
                         <% end %>
                           
                                            </span>
