@@ -14,6 +14,7 @@
     </label>
 
     <%= select_tag(:race_id, options_from_collection_for_select(Race.all, :id, :name, @result.race_id), :class => "form-control") %>
+  <a href="/create_race">Add a New Race</a>
   </div>
 
   <div class="form-group">
