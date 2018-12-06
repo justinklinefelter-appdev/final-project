@@ -100,9 +100,12 @@
                         </button>
                         <div></div>
                         <% if current_user.id == result.user_id %>
+                        <button>
                         <a href="/results/<%=result.id %>/edit" class = "card-link">Edit</a>
+                        </button>
+                        <button>
                         <a href="/delete_result/<%=result.id %>" class = "card-link">Delete</a>
- 
+                       </button>
                         <% end %>
                           </span>
                           </div> <!-- input-group -->
