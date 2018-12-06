@@ -21,7 +21,9 @@
     </label>
 
     <%= select_tag(:event_id, options_from_collection_for_select(Event.all, :id, :name, @race.event_id), :class => "form-control") %>
-  <a href="/create_race">Add a New Race</a>
+  <a href="/events/new">
+      Add a new event
+    </a>
   </div>
   
 
