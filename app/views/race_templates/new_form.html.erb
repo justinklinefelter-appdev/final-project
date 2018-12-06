@@ -1,0 +1,50 @@
+<h1>
+  Add a new race
+</h1>
+
+
+<hr>
+
+<form action="/create_race" method="post">
+
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" class="form-control">
+  </div>
+
+   <div class="form-group">
+    <label for="event_id">
+      Event
+    </label>
+
+    <%= select_tag(:event_id, options_from_collection_for_select(Event.all, :id, :name, @race.event_id), :class => "form-control") %>
+  </div>
+
+  <div class="form-group">
+    <label for="location">
+      Location
+    </label>
+
+    <input type="text" id="location" name="location" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="link">
+      Race Website
+    </label>
+
+    <input type="text" id="link" name="link" class="form-control">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create race
+  </button>
+</form>
+
+<hr>
+
+<a href="/races">
+  Go back
+</a>

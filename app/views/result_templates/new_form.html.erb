@@ -1,0 +1,76 @@
+<h1>
+  Add a new result
+</h1>
+
+
+<hr>
+
+<form action="/create_result" method="post">
+
+  <input type="hidden" name="user_id" value="<%= current_user.id %>">
+  <div class="form-group">
+    <label for="race_id">
+      Race
+    </label>
+
+    <%= select_tag(:race_id, options_from_collection_for_select(Race.all, :id, :name, @result.race_id), :class => "form-control") %>
+  </div>
+
+  <div class="form-group">
+    <label for="time">
+      Time
+    </label>
+
+    <input type="text" id="time" name="time" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="overall_place">
+      Overall place
+    </label>
+
+    <input type="text" id="overall_place" name="overall_place" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="age_group_place">
+      Age group place
+    </label>
+
+    <input type="text" id="age_group_place" name="age_group_place" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="body">
+      Body
+    </label>
+
+    <input type="text" id="body" name="body" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="link">
+      Link
+    </label>
+
+    <input type="text" id="link" name="link" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="year">
+      Year
+    </label>
+
+    <input type="text" id="year" name="year" class="form-control">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create result
+  </button>
+</form>
+
+<hr>
+
+<a href="/results">
+  Go back
+</a>

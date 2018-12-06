@@ -1,0 +1,54 @@
+<!-- Validation failure messages -->
+<% if @comment.present? %>
+  <% if @comment.errors.any? %>
+    <% @comment.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new comment
+</h1>
+
+
+<hr>
+
+<form action="/create_comment" method="post">
+
+  <div class="form-group">
+    <label for="body">
+      Body
+    </label>
+
+    <input type="text" id="body" name="body" class="form-control" value="<%= @comment.body %>">
+  </div>
+
+  <div class="form-group">
+    <label for="commentor_id">
+      Commentor
+    </label>
+
+    <input type="text" id="commentor_id" name="commentor_id" class="form-control" value="<%= @comment.commentor_id %>">
+  </div>
+
+  <div class="form-group">
+    <label for="result_id">
+      Result
+    </label>
+
+    <input type="text" id="result_id" name="result_id" class="form-control" value="<%= @comment.result_id %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create comment
+  </button>
+</form>
+
+<hr>
+
+<a href="/comments">
+  Go back
+</a>

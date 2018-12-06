@@ -1,0 +1,95 @@
+<% @users.results.each do |result| %>
+<div class="row mb-5">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">
+          <a href="/users/<%= result.user.id %>"><%= result.user.username %></a> 
+          <small>
+            <%= time_ago_in_words(result.created_at) %> ago
+          </small>
+        </h4>
+      </div>
+      
+        <div class="card-body">
+        <table class="table">
+      <tr>
+         <th>
+          Race
+        </th>
+        <th>
+          Time
+        </th>
+
+        <th>
+          Overall Place
+        </th>
+
+        <th>
+          Age Group Place
+        </th>
+       
+      </tr>
+      <tr>
+         <th>
+          <a href="/results/<%= result.id %>">  <%= result.year %>  <%= result.race.name %>
+        </th>
+        <th>
+          <%= result.time %>
+        </th>
+
+        <th>
+          <%= result.overall_place %>
+        </th>
+
+        <th>
+          <%= result.age_group_place %>
+        </th>
+       
+      </tr>
+        </table>
+        <div class="card-body">
+        <%= result.body %>
+       
+        </div>
+       
+        
+      
+        
+        <% result.comments.each do |comment| %> 
+              <ui>
+                <a href="/users/<%= @user.find(comment.commentor_id).id %>" class = "card-link"><%= @user.find(comment.commentor_id).username %></a>
+                <%= comment.body %>
+              </ui>
+              <% end %>
+              <div class="media-body">
+                <form action="/create_comment" method="post" class="pt-4">
+                  <!-- Hidden input for authenticity token to protect from forgery -->
+                  <input name="authenticity_token" type="hidden" value="i8ry6EyMM+eW6/sFNzqgCOL5+yAatMvkoeXBFdVKsf7MX940w/PClVtYm8qcJRdc9d9xqzj/wdifHMKu81KzIw==">
+
+                  <input type="hidden" name="result_id" value="<%= result.id %>">
+
+                  <input type="hidden" name="user_id" value="<%= current_user.id %>">
+              
+                  <!-- Label and input for body -->
+                  <div class="form-group">
+                    <label for="body" class="sr-only">
+                     Body
+                    </label>
+
+                    <div class="input-group">
+                      <input type="text" id="body" name="body" class="form-control" placeholder="Add a comment..." required>
+
+                      <span class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                          <i class="far fa-comment"></i>
+
+                          Add Comment
+                        </button>
+                        <div></div>
+                        <% if current_user.id == result.user_id %>
+                        <a href="/results/<%=result.id %>/edit" class = "card-link">Edit</a>
+                        <a href="/delete_result/<%=result.id %>" class = "card-link">Delete</a>
+ 
+                        <% end %>
+                          <% end %>

@@ -1,0 +1,69 @@
+<div class="row mb-3">
+  <div class="col-md-12">
+    <h1>
+      All races
+    </h1>
+
+    <a href="/races/new" class="btn btn-block btn-outline-secondary">
+      Add a new race
+    </a>
+  </div>
+</div>
+
+
+<hr>
+
+<div class="row mb-3">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Event
+        </th>
+
+        <th>
+          Location
+        </th>
+        <th>
+          Link
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @races.each do |race| %>
+      <tr>
+        <td>
+          <%= race.name %>
+        </td>
+
+        <td>
+          <% if race.event.present? %>
+            <a href="/events/<%= race.event.id %>">
+              <%= race.event.name %>
+            </a>
+          <% end %>
+        </td>
+
+        <td>
+          <%= race.location %>
+        </td>
+        <td>
+          <a href= "<%= race.link %>"target="_blank">Website</a>
+        </td>
+        <td>
+          <a href="/races/<%= race.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

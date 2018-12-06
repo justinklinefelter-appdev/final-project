@@ -1,0 +1,50 @@
+<% if @race.errors.any? %>
+  <% @race.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit race #<%= @race.id %>
+</h1>
+
+<hr>
+
+<form action="/update_race/<%= @race.id %>" method="post">
+
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" class="form-control" value="<%= @race.name %>">
+  </div>
+
+  <div class="form-group">
+    <label for="event_id">
+      Event
+    </label>
+
+    <input type="text" id="event_id" name="event_id" class="form-control" value="<%= @race.event_id %>">
+  </div>
+
+  <div class="form-group">
+    <label for="location">
+      Location
+    </label>
+
+    <input type="text" id="location" name="location" class="form-control" value="<%= @race.location %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update race
+  </button>
+</form>
+
+<hr>
+
+<a href="/races">
+  Go back
+</a>

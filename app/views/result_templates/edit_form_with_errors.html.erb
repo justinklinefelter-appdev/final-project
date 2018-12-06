@@ -1,0 +1,90 @@
+<% if @result.errors.any? %>
+  <% @result.errors.full_messages.each do |message| %>
+    <div class="alert">
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<h1>
+  Edit result #<%= @result.id %>
+</h1>
+
+<hr>
+
+<form action="/update_result/<%= @result.id %>" method="post">
+
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @result.user_id %>">
+  </div>
+
+  <div class="form-group">
+    <label for="race_id">
+      Race
+    </label>
+
+    <input type="text" id="race_id" name="race_id" class="form-control" value="<%= @result.race_id %>">
+  </div>
+
+  <div class="form-group">
+    <label for="time">
+      Time
+    </label>
+
+    <input type="text" id="time" name="time" class="form-control" value="<%= @result.time %>">
+  </div>
+
+  <div class="form-group">
+    <label for="overall_place">
+      Overall place
+    </label>
+
+    <input type="text" id="overall_place" name="overall_place" class="form-control" value="<%= @result.overall_place %>">
+  </div>
+
+  <div class="form-group">
+    <label for="age_group_place">
+      Age group place
+    </label>
+
+    <input type="text" id="age_group_place" name="age_group_place" class="form-control" value="<%= @result.age_group_place %>">
+  </div>
+
+  <div class="form-group">
+    <label for="body">
+      Body
+    </label>
+
+    <input type="text" id="body" name="body" class="form-control" value="<%= @result.body %>">
+  </div>
+
+  <div class="form-group">
+    <label for="link">
+      Link
+    </label>
+
+    <input type="text" id="link" name="link" class="form-control" value="<%= @result.link %>">
+  </div>
+
+  <div class="form-group">
+    <label for="year">
+      Year
+    </label>
+
+    <input type="text" id="year" name="year" class="form-control" value="<%= @result.year %>">
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update result
+  </button>
+</form>
+
+<hr>
+
+<a href="/results">
+  Go back
+</a>

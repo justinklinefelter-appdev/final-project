@@ -1,0 +1,94 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      <%= @result.user.username %>'s <%= @result.year %> <%= @result.race.name %> Result 
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/results" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/results/<%= @result.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit result
+        </a>
+      </div>
+
+      <div class="col">
+        <a href="/delete_result/<%= @result.id %>" class="btn btn-block btn-outline-secondary">
+          Delete result
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Participant
+      </dt>
+      <dd>
+        <% if @result.user.present? %>
+            <a href="/users/<%= @result.user.id %>">
+              <%= @result.user.username %>
+            </a>
+          <% end %>
+      </dd>
+
+      <dt>
+        Race
+      </dt>
+      <dd>
+        <% if @result.race.present? %>
+            <a href="/races/<%= @result.race.id %>">
+              <%= @result.race.name %>
+            </a>
+            <% end %>
+      </dd>
+
+      <dt>
+        Time
+      </dt>
+      <dd>
+        <%= @result.time %>
+      </dd>
+
+      <dt>
+        Overall place
+      </dt>
+      <dd>
+        <%= @result.overall_place %>
+      </dd>
+
+      <dt>
+        Age group place
+      </dt>
+      <dd>
+        <%= @result.age_group_place %>
+      </dd>
+
+      <dt>
+        Race Notes
+      </dt>
+      <dd>
+        <%= @result.body %>
+      </dd>
+
+      <dt>
+        Link
+      </dt>
+      <dd>
+       <a href="<%= @result.link %>" target="_blank">Result Link</a>
+      </dd>
+
+      <dt>
+        Year
+      </dt>
+      <dd>
+        <%= @result.year %>
+      </dd>
+    </dl>
+  </div>
+</div>
+
