@@ -4,7 +4,7 @@
       All results
     </h1>
 
-    <a href="/results/new" class="btn btn-block btn-outline-secondary">
+    <a href="/results/new" class="btn btn-block btn-outline-success">
       Add a new result
     </a>
   </div>
@@ -98,11 +98,13 @@
 
                           Add Comment
                         </button>
-                        
+                        <button>
                         <% if current_user.id == result.user_id %>
                         <a href="/results/<%=result.id %>/edit" class = "card-link">Edit</a>
+                        </button>
+                        <button>
                         <a href="/delete_result/<%=result.id %>" class = "card-link">Delete</a>
- 
+                         </button>
                         <% end %>
                           
                                            </span>
