@@ -35,7 +35,7 @@ class ResultsController < ApplicationController
     if @result.valid?
       @result.save
 
-      redirect_back(:fallback_location => "/results", :notice => "Result created successfully.")
+      redirect_to("/results", :notice => "Result created successfully.")
     else
       render("result_templates/new_form_with_errors.html.erb")
     end

@@ -36,7 +36,7 @@ require 'open-uri'
     if @race.valid?
       @race.save
 
-      redirect_back(:fallback_location => "/races", :notice => "Race created successfully.")
+      redirect_to("/races", :notice => "Race created successfully.")
     else
       render("race_templates/new_form_with_errors.html.erb")
     end

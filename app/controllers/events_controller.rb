@@ -27,7 +27,7 @@ class EventsController < ApplicationController
     if @event.valid?
       @event.save
 
-      redirect_back(:fallback_location => "/events", :notice => "Event created successfully.")
+      redirect_to("/events", :notice => "Event created successfully.")
     else
       render("event_templates/new_form_with_errors.html.erb")
     end
