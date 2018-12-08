@@ -1,7 +1,9 @@
+
 <div class="row mb-3">
   <div class="col-md-12">
+    
     <h1>
-      My Results
+      <%= @users.username %>'s Results
     </h1>
 
     <a href="/results/new" class="btn btn-block btn-outline-success">
@@ -9,14 +11,14 @@
     </a>
   </div>
   </div>
-
 <% @users.results.order('created_at DESC').each do |result| %>
+
 <div class="row mb-5">
   <div class="col-md-8 offset-md-2">
     <div class="card">
       <div class="card-header">
         <h4 class="card-title">
-          <a href="/users/<%= result.user.id %>"><%= result.user.username %></a> 
+          <a href="/users/<%= result.user_id %>"><%= result.user.username %></a> 
           <small>
             <%= time_ago_in_words(result.created_at) %> ago
           </small>
@@ -69,10 +71,10 @@
       
         
         <% result.comments.each do |comment| %> 
-              <ui>
+              <ul>
                 <a href="/users/<%= @user.find(comment.commentor_id).id %>" class = "card-link"><%= @user.find(comment.commentor_id).username %></a>
                 <%= comment.body %>
-              </ui>
+              </ul>
               <% end %>
               <div class="media-body">
                 <form action="/create_comment" method="post" class="pt-4">

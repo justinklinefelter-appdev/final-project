@@ -69,10 +69,10 @@
       
         
         <% result.comments.each do |comment| %> 
-              <ui>
+              <ul>
                 <a href="/users/<%= @users.find(comment.commentor_id).id %>" class = "card-link"><%= @users.find(comment.commentor_id).username %></a>
                 <%= comment.body %>
-              </ui>
+              </ul>
               <% end %>
               <div class="media-body">
                 <form action="/create_comment" method="post" class="pt-4">
