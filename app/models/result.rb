@@ -21,4 +21,5 @@ class Result < ApplicationRecord
     belongs_to :race
     has_many :comments, :dependent => :destroy
     
+    
 end

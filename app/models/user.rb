@@ -24,7 +24,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  has_many :results, :dependent => :destroy
+  has_many :results, :dependent => :destroy 
   has_many :comments, :foreign_key => "commentor_id", :dependent => :destroy   
   has_many :races, :through => :results, :source => :race
 

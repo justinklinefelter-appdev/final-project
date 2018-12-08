@@ -10,7 +10,7 @@
   </div>
   </div>
 
-<% @users.results.each do |result| %>
+<% @users.results.order('created_at DESC').each do |result| %>
 <div class="row mb-5">
   <div class="col-md-8 offset-md-2">
     <div class="card">
